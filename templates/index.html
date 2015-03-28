@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+<script>
+	$(document).ready(function () {
+		$('#home').addClass('active');
+	});
+</script>
+{% endblock %}
+{% block content %}
+    <h1>Phrase Counter</h1>
+    <p class="important">
+      Welcome to the Phrase Counter app. You will be prompted to enter a block of text in the next screen. <br>
+      Then, the app will count the most common words and phrases for you. <br>
+      Additionally, you will be able to all the sentences in your text that contains these most common phrases. <br><br>
+      <form action="/input" method="GET" id="inputform">
+      <input class="btn btn-default" type="submit" value="Next!">
+      </form>
+    </p>
+{% endblock %}

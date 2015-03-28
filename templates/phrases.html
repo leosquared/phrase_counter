@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+        table.results-table	tr:nth-child(even) {background: #CCC}
+		table.results-table	tr:nth-child(odd) {background: #FFF}
+        #top-row { 
+        	background: #000000;
+        	color: #FFFFFF
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <h1>All sentences containing the phrase: "{{phrase}}"</h1>
+    <p class="important">
+		
+		<table class="results-table">
+		{% for sentence in sentences %}
+			<tr class="results-table">
+				<td>{{ sentence }}</td>
+			</tr>
+		{% endfor %}
+		</table>
+
+    </p>
+{% endblock %}

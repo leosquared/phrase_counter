@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+<script>
+	$(document).ready(function () {
+		$('#inputtext').addClass('active');
+	});
+</script>
+{% endblock %}
+{% block content %}
+    <h1>Please input some text</h1>
+    <p class="important">
+		<form action="/output" method="POST" id="inputform">
+			<textarea name="txtinput" class="form-control" placeholder="paste here..." rows="25"></textarea> <br>
+			And I want the top:
+			<select name="howmany" class="form-control">
+				{% for x in range(21) %}
+					{% if x == 10 %}
+					<option value={{x}} selected="selected">{{x}}</option>
+					{% else %}
+					<option value={{x}}>{{x}}</option>
+					{% endif %}
+				{% endfor %}
+			</select>
+			words <br> <br>
+			<input class="btn btn-default" type="submit" value="Get Results">
+		</form>
+    </p>
+{% endblock %}

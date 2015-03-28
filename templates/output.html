@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    <h1>List of most common phrases/words</h1>
+    <p class="important">
+		
+		<table class="table table-striped">
+			<thead>
+				<td>Phrase Count</td>
+				<td>Phrase</td>
+			</thead>
+			<tbody>
+		{% for phrase in phrases %}
+			<tr class="results-table">
+				<td>{{phrase.1}}</td>
+				<td><a href="/output/phrase/{{phrase.0}}">{{phrase.0}}</a></td>
+			</tr>
+		{% endfor %}
+			</tbody>
+		</table>
+
+
+    </p>
+{% endblock %}
